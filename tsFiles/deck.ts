@@ -24,4 +24,21 @@ class Deck{
         return this.cards.length == 0;
     }
     
+    mustReshuffle(){
+        if(this.cards.length < 17){
+            return true;
+        }
+      }
+
+      draw(){
+        //fa il controllo sul mazzo se è vuoto
+        if(this.isEmpty()){
+            throw new Error("No more cards");
+        }
+        //shift toglie e torna il primo elemento dell'array
+        //pop invece l'ultimo
+        return this.cards.shift();
+    }
+
+    
 }

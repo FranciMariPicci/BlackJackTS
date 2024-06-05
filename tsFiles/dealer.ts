@@ -2,6 +2,7 @@
 
 class Dealer{
     private hand : Array<Card>;
+    
 
     constructor(private _deck : Deck){
         this._deck.shuffle();
@@ -9,7 +10,7 @@ class Dealer{
     }
 
     draw(){
-        this.hand.push(this._deck.draw());
+        this.hand.push(this._deck.draw()!);
     }
 
     drawInitialHand(){
