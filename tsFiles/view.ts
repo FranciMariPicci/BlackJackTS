@@ -14,6 +14,7 @@ export default class View{
     private message : HTMLElement = document.querySelector('#message p')!;
     private hit : HTMLButtonElement = document.querySelector('#hit')!;
     private stay : HTMLButtonElement = document.querySelector('#stay')!;
+    private newGame : HTMLButtonElement = document.querySelector('#newGame')!;
 
     constructor (private _blackjack : Blackjack){
         this.player = _blackjack.player;
@@ -52,8 +53,9 @@ export default class View{
     }
 
     stopGame(){
-        this.hit.disabled = true;
-        this.stay.disabled = true;
+        this.hit.classList.add("hidden");
+        this.stay.classList.add("hidden");
+        this.newGame.classList.remove("hidden");
     }
 
     showDealerCard(image : string){
@@ -61,6 +63,15 @@ export default class View{
             this.dealerScore.classList.remove("hidden");
             this.firstDealerCard.src = image;
         }
+    }
+
+    cleanTable(){
+        this.dealerScore.innerHTML = "";
+        this.playerScore.innerHTML = "";
+        this.dealerHand.innerHTML = "";
+        this.playerHand.innerHTML = "";
+        this.message.innerHTML = "";
+        
     }
 
 }

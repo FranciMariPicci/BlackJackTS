@@ -9,6 +9,7 @@ export default class View {
         this.message = document.querySelector('#message p');
         this.hit = document.querySelector('#hit');
         this.stay = document.querySelector('#stay');
+        this.newGame = document.querySelector('#newGame');
         this.player = _blackjack.player;
         this.dealer = _blackjack.dealer;
         this.hit.addEventListener('click', evt => {
@@ -39,14 +40,22 @@ export default class View {
         return this.message.innerText = text;
     }
     stopGame() {
-        this.hit.disabled = true;
-        this.stay.disabled = true;
+        this.hit.classList.add("hidden");
+        this.stay.classList.add("hidden");
+        this.newGame.classList.remove("hidden");
     }
     showDealerCard(image) {
         if (this.firstDealerCard != null) {
             this.dealerScore.classList.remove("hidden");
             this.firstDealerCard.src = image;
         }
+    }
+    cleanTable() {
+        this.dealerScore.innerHTML = "";
+        this.playerScore.innerHTML = "";
+        this.dealerHand.innerHTML = "";
+        this.playerHand.innerHTML = "";
+        this.message.innerHTML = "";
     }
 }
 //# sourceMappingURL=view.js.map

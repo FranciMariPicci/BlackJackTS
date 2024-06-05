@@ -1,6 +1,15 @@
 import Blackjack from "./blackjack.js";
-let bj = new Blackjack();
-bj.newGame();
+let newGame = document.querySelector('#newGame');
+let hit = document.querySelector('#hit');
+let stay = document.querySelector('#stay');
+newGame.addEventListener('click', evt => {
+    console.log("inizio gioco");
+    let bj = new Blackjack();
+    bj.newGame();
+    newGame.classList.add("hidden");
+    hit.classList.remove("hidden");
+    stay.classList.remove("hidden");
+});
 /*
 implementare il gioco con un button iniziale START GAME e che poi verrà riproposto quando la mano è vinta o persa
 poi rendere il gioco più iteressante con l'animazione o il girare la carta in modo più lento
