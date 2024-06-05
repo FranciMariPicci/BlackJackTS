@@ -1,16 +1,16 @@
+import Card from "./card.js";
+import Deck from "./deck.js";
 
-
-class Dealer{
-    private hand : Array<Card>;
-    
+export default class Dealer{
+    private _hand : Array<Card>;
 
     constructor(private _deck : Deck){
         this._deck.shuffle();
-        this.hand = [];
+        this._hand = [];
     }
 
     draw(){
-        this.hand.push(this._deck.draw()!);
+        this._hand.push(this._deck.draw()!);
     }
 
     drawInitialHand(){
@@ -21,7 +21,7 @@ class Dealer{
     getScore(){
         let score = 0;
         let numAces = 0;
-        this.hand.forEach(element => {
+        this._hand.forEach(element => {
             if(element.isAce()){
                 numAces++;
             }else{
@@ -35,5 +35,13 @@ class Dealer{
             return score + 11 + (numAces - 1);
         }
         return score + numAces;
+    }
+
+    getLastCard(){
+        return this._hand[this._hand.length -1];
+    }
+
+    get hand() : Array<Card>{
+        return this._hand;
     }
 }

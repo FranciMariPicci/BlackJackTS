@@ -1,12 +1,15 @@
-class Player{
-    private hand : Array<Card>;
+import Card from "./card.js";
+import Deck from "./deck.js";
+
+export default class Player{
+    private _hand : Array<Card>;
 
     constructor(private _deck : Deck){
-        this.hand = [];
+        this._hand = [];
     }
 
     draw(){
-        this.hand.push(this._deck.draw()!);
+        this._hand.push(this._deck.draw()!);
     }
 
     drawInitialHand(){
@@ -16,24 +19,28 @@ class Player{
 
     getScore(){
         let score = 0;
-    let numAces = 0;
-    this.hand.forEach(c => {
-        if(c.isAce()){
-            numAces++;
-        } else{
-            score += c.score;
+        let numAces = 0;
+        this._hand.forEach(c => {
+            if(c.isAce()){
+                numAces++;
+            } else{
+                score += c.score;
+            }
+        });
+        if(numAces == 0){
+            return score;
         }
-    });
-    if(numAces == 0){
-        return score;
-    }
-    if(score + 11 + (numAces -1) <= 21){
-        return score + 11 + (numAces -1);
-    }
-    return score + numAces;
+        if(score + 11 + (numAces -1) <= 21){
+            return score + 11 + (numAces -1);
+        }
+        return score + numAces;
     }
 
     getLastCard(){
-        return this.hand[this.hand.length -1];
+        return this._hand[this._hand.length -1];
+    }
+
+    get hand() : Array<Card>{
+        return this._hand;
     }
 }
