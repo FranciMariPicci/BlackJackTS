@@ -2,9 +2,9 @@ import Blackjack from "./blackjack.js";
 let newGame = document.querySelector('#newGame');
 let hit = document.querySelector('#hit');
 let stay = document.querySelector('#stay');
+let bj = new Blackjack();
 newGame.addEventListener('click', evt => {
     console.log("inizio gioco");
-    let bj = new Blackjack();
     bj.newGame();
     newGame.classList.add("hidden");
     hit.classList.remove("hidden");

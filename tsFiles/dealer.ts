@@ -41,6 +41,10 @@ export default class Dealer{
         return this._hand[this._hand.length -1];
     }
 
+    cleanHand(){
+        return this._hand = [];
+    }
+
     get hand() : Array<Card>{
         return this._hand;
     }
