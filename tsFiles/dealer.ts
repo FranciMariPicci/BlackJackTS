@@ -18,6 +18,10 @@ export default class Dealer{
         this.draw();
     }
 
+    emptyHand(){
+        this._hand =  [];
+    }
+
     getScore(){
         let score = 0;
         let numAces = 0;

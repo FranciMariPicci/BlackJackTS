@@ -10,6 +10,9 @@ export default class Player {
         this.draw();
         this.draw();
     }
+    emptyHand() {
+        this._hand = [];
+    }
     getScore() {
         let score = 0;
         let numAces = 0;

@@ -10,6 +10,8 @@ export default class Blackjack {
         this.view = new View(this);
     }
     newGame() {
+        this._player.emptyHand();
+        this._dealer.emptyHand();
         this.view.cleanTable();
         this._player.drawInitialHand();
         this._player.hand.forEach(c => this.view.addPlayerCard(c));
