@@ -51,11 +51,12 @@ export default class View {
         }
     }
     cleanTable() {
-        this.dealerScore.innerHTML = "";
-        this.playerScore.innerHTML = "";
-        this.dealerHand.innerHTML = "";
-        this.playerHand.innerHTML = "";
-        this.message.innerHTML = "";
+        this.dealerScore.innerHTML = '';
+        this.playerScore.innerHTML = '';
+        this.dealerHand.innerHTML = '';
+        this.playerHand.innerHTML = '';
+        this.message.innerHTML = '';
+        //window.location.reload();
     }
 }
 //# sourceMappingURL=view.js.map

@@ -36,6 +36,9 @@ export default class Dealer {
     getLastCard() {
         return this._hand[this._hand.length - 1];
     }
+    cleanHand() {
+        return this._hand = [];
+    }
     get hand() {
         return this._hand;
     }
